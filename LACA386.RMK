@@ -1,0 +1,27 @@
+//
+//             Fichero RMAKE para obtener GVC386.EXE
+//
+//             GESTION PARA TALLERES DE LACADO v1.00 versi¢n 386
+//             (c) Fco. Javier P‚rez Vidal - 1996
+//
+
+.prg.obj:
+    CLIPPER $* /m /n /w
+
+.obj.exe:
+    BLINKER @laca386
+
+GES000.OBJ : GES000.PRG
+GES001.OBJ : GES001.PRG
+GES002.OBJ : GES002.PRG
+GES003.OBJ : GES003.PRG
+GES004.OBJ : GES004.PRG
+GES031.OBJ : GES031.PRG
+GES032.OBJ : GES032.PRG
+GES033.OBJ : GES033.PRG
+GES999.OBJ : GES999.PRG
+
+LACA386.EXE : GES000.OBJ \
+              GES001.OBJ GES002.OBJ GES003.OBJ GES004.OBJ \
+              GES031.OBJ GES032.OBJ GES033.OBJ \
+              GES999.OBJ
