@@ -1,13 +1,13 @@
 * * * * * * * * * * *
-* Programa .........: Gesti¢n para Talleres de Lacado v1.00
-* Subprograma ......: Compactaci¢n y Reindexaci¢n de Ficheros.
-* Programador ......: Fco. Javier P‚rez Vidal.
+* Programa .........: Gestion para Talleres de Lacado v1.00
+* Subprograma ......: Compactacion y Reindexacion de Ficheros.
+* Programador ......: Fco. Javier Perez Vidal.
 * * * * * *
-* Compactar()  : Funci¢n general para la compactaci¢n de las bases de datos.
-* CompactPro() : Funci¢n para compactar Proveedores.
-* CompactFam() : Funci¢n para compactar Familias.
-* CompactArt() : Funci¢n para compactar Art¡culos.
-* CompactCli() : Funci¢n para compactar Clientes.
+* Compactar()  : Funcion general para la compactacion de las bases de datos.
+* CompactPro() : Funcion para compactar Proveedores.
+* CompactFam() : Funcion para compactar Familias.
+* CompactArt() : Funcion para compactar Articulos.
+* CompactCli() : Funcion para compactar Clientes.
 * * * * *
 
 MEMVAR cCNormal, cCMenus
@@ -20,11 +20,11 @@ FUNCTION Compactar()
 
    DO WHILE .T.
       CajaTitulo( 6,13,22,67,2," COMPACTACION DE FICHEROS DE DATOS ", "" )
-      @  7,15 PROMPT " 1) Compactaci¢n de Proveedores                    "
-      @  8,15 PROMPT " 2) Compactaci¢n de Familias                       "
-      @  9,15 PROMPT " 3) Compactaci¢n de Art¡culos                      "
-      @ 10,15 PROMPT " 4) Compactaci¢n de Clientes                       "
-      @ 11,15 PROMPT " 5) Compactaci¢n de TODOS los Ficheros             "
+      @  7,15 PROMPT " 1) Compactacion de Proveedores                    "
+      @  8,15 PROMPT " 2) Compactacion de Familias                       "
+      @  9,15 PROMPT " 3) Compactacion de Articulos                      "
+      @ 10,15 PROMPT " 4) Compactacion de Clientes                       "
+      @ 11,15 PROMPT " 5) Compactacion de TODOS los Ficheros             "
 
       MENU TO nMenu
       DO CASE

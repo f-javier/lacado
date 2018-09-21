@@ -1,32 +1,32 @@
 * * * * * * * * * * *
-* Programa .........: Gesti¢n para Talleres de Lacado v1.00
+* Programa .........: Gestion para Talleres de Lacado v1.00
 * Subprograma ......: Mantenimiento de Familias.
-* Programador ......: Fco. Javier P‚rez Vidal.
+* Programador ......: Fco. Javier Perez Vidal.
 * * * * * *
-* AltasGen()  : Funci¢n para las ALTAS DE FAMILIAS.
-* BajasGen()  : Funci¢n para las BAJAS DE FAMILIAS.
-* ConsulGen() : Funci¢n para las CONSULTAS DE FAMILIAS.
-* ModifGen()  : Funci¢n para las MODIFICACIONES DE FAMILIAS.
-* LGen_Cod()  : Funci¢n para LISTADO DE FAMILIAS POR CODIGO.
-* LGen_Nom()  : Funci¢n para LISTADO DE FAMILIAS POR NOMBRE.
-* AbrirBBDD() : Funci¢n para abrir los ficheros.
-* CerrarBBDD(): Funci¢n para cerrar los ficheros.
+* AltasGen()  : Funcion para las ALTAS DE FAMILIAS.
+* BajasGen()  : Funcion para las BAJAS DE FAMILIAS.
+* ConsulGen() : Funcion para las CONSULTAS DE FAMILIAS.
+* ModifGen()  : Funcion para las MODIFICACIONES DE FAMILIAS.
+* LGen_Cod()  : Funcion para LISTADO DE FAMILIAS POR CODIGO.
+* LGen_Nom()  : Funcion para LISTADO DE FAMILIAS POR NOMBRE.
+* AbrirBBDD() : Funcion para abrir los ficheros.
+* CerrarBBDD(): Funcion para cerrar los ficheros.
 * InitVars    : Procedimiento para inicializar las varibles del fichero.
 * Literales   : Procedimiento para mostrar los literales de la patalla.
 * PedirDatos  : Procedimiento para pedir los datos de la pantalla.
 * MostrarDatos: Procedimiento para mostrar los datos en pantalla.
 * Salvar      : Procedimiento para salvar los datos de memoria en el fichero.
 * Recuperar   : Procedimiento para recuperar los datos del fichero a memoria.
-* Buscar()    : Funci¢n para busquedas. Pregunta literal a buscar.
-* Visualizar(): Funci¢n para visualizar todo el fichero.
-* Control()   : Funci¢n de navegaci¢n por el fichero en modo consultas.
+* Buscar()    : Funcion para busquedas. Pregunta literal a buscar.
+* Visualizar(): Funcion para visualizar todo el fichero.
+* Control()   : Funcion de navegacion por el fichero en modo consultas.
 * * * * * *
 
 #include "inkey.ch"
 
 MEMVAR cCNormal, cCpanta, cCMensa
 
-// Definici¢n de variables STATIC. S¢lo visibles desde este programa.
+// Definicion de variables STATIC. Solo visibles desde este programa.
    STATIC nFamCodigo
    STATIC cFamNombre
 
@@ -46,7 +46,7 @@ FUNCTION AltasFam( )
    SET KEY K_F5 TO Buscar
    SET KEY K_F9 TO Visualizar
    IF AbrirBBDD( )
-      CajaTitulo( 8,8,15,70,2," Altas de Familias "," F5=Buscar ÍÍÍÍ F9=Visualizar " )
+      CajaTitulo( 8,8,15,70,2," Altas de Familias "," F5=Buscar | F9=Visualizar " )
       DO Literales
       lSalir := .T.
       DO WHILE lSalir
@@ -63,7 +63,7 @@ FUNCTION AltasFam( )
             ELSE
                   DBAPPEND( )
                   IF NETERR( )
-                     ALERT( "­­­ ACCESO DENEGADO !!!;;No se puede a¤adir el registro" )
+                     ALERT( "­­­ ACCESO DENEGADO !!!;;No se puede añadir el registro" )
                   ELSE
                      FAM002->Codigo := nFamCodigo
                      FAM002->( DBCOMMIT() )
@@ -124,7 +124,7 @@ FUNCTION BajasFam()
    SET KEY K_F5 TO Buscar
    SET KEY K_F9 TO Visualizar
    IF AbrirBBDD( )
-      CajaTitulo( 8,8,15,70,2," Bajas de Familias "," F5=Buscar ÍÍÍÍ F9=Visualizar " )
+      CajaTitulo( 8,8,15,70,2," Bajas de Familias "," F5=Buscar | F9=Visualizar " )
       DO Literales
       lSalir := .T.
       DO WHILE lSalir
@@ -194,7 +194,7 @@ FUNCTION ConsulFam()
    SET KEY K_F5 TO Buscar
    SET KEY K_F9 TO Visualizar
    IF AbrirBBDD( )
-      CajaTitulo( 8,8,15,70,2," Consultas de Familias "," F5=Buscar ÍÍÍÍ F9=Visualizar " )
+      CajaTitulo( 8,8,15,70,2," Consultas de Familias "," F5=Buscar | F9=Visualizar " )
       DO Literales
       lSalir := .T.
       DO WHILE lSalir
@@ -243,7 +243,7 @@ FUNCTION ModifFam()
    SET KEY K_F5 TO Buscar
    SET KEY K_F9 TO Visualizar
    IF AbrirBBDD( )
-      CajaTitulo( 8,8,15,70,2," Modificaciones de Familias "," F5=Buscar ÍÍÍÍ F9=Visualizar " )
+      CajaTitulo( 8,8,15,70,2," Modificaciones de Familias "," F5=Buscar | F9=Visualizar " )
       DO Literales
       lSalir := .T.
       DO WHILE lSalir
@@ -320,7 +320,7 @@ FUNCTION LFam_Cod
    SET( _SET_DELIMITERS, .T. )
    SETCURSOR( 1 )
    IF AbrirBBDD( )
-      CajaTitulo( 5,15,17,65,2," Listado de Familias por C¢digo "," ESC = Salir ÍÍÍÍÍÍÍÍ 80 Columnas " )
+      CajaTitulo( 5,15,17,65,2," Listado de Familias por Codigo "," ESC = Salir | 80 Columnas " )
       @  8,25 SAY "C¢digo desde:" GET nDesde PICTURE "99"
       @ 10,25 SAY "C¢digo Hasta:" GET nHasta PICTURE "99"
       @ 12,25 SAY "Destino del listado(P/I):" GET cDestino ;
@@ -334,11 +334,11 @@ FUNCTION LFam_Cod
             SET FILTER TO FAM002->codigo >= nDesde .AND. ;
                           FAM002->codigo <= nHasta
             DBGOTOP( )
-            CajaTitulo( 3,0,24,79,2," Listado de Familias por C¢digo ",;
+            CajaTitulo( 3,0,24,79,2," Listado de Familias por Codigo ",;
                                      " Pulse <ESC> para Salir " )
             oListado := TBrowseDB( 4,1,23,78 )
             oListado:headSep := "Í"
-            oCol := TBColumnNew( "C¢digo", { || FAM002->CODIGO } )
+            oCol := TBColumnNew( "Codigo", { || FAM002->CODIGO } )
             oListado:addColumn( oCol )
             oCol := TBColumnNew( "Nombre", { || FAM002->NOMBRE } )
             oListado:addColumn( oCol )
@@ -410,7 +410,7 @@ FUNCTION LFam_Nom
    SETCURSOR( 1 )
    IF AbrirBBDD( )
       DBSETORDER( 2 )
-      CajaTitulo( 5,15,17,65,2," Listado de Familias por Nombre "," ESC = Salir ÍÍÍÍÍÍÍÍ 80 Columnas " )
+      CajaTitulo( 5,15,17,65,2," Listado de Familias por Nombre "," ESC = Salir | 80 Columnas " )
       @  8,17 SAY "Familia desde:" GET cDesde PICTURE "@K!"
       @ 10,17 SAY "Familia Hasta:" GET cHasta PICTURE "@K!"
       @ 12,25 SAY "Destino del listado(P/I):" GET cDestino ;
@@ -430,7 +430,7 @@ FUNCTION LFam_Nom
             oListado:headSep := "Í"
             oCol := TBColumnNew( "Nombre", { || FAM002->NOMBRE } )
             oListado:addColumn( oCol )
-            oCol := TBColumnNew( "C¢digo", { || FAM002->CODIGO } )
+            oCol := TBColumnNew( "Codigo", { || FAM002->CODIGO } )
             oListado:addColumn( oCol )
             DO WHILE ( lMas )
                nTecla := 0
@@ -489,7 +489,7 @@ STATIC FUNCTION AbrirBBDD()
    USE ( "DATOS\FAMILIAS.DBF" ) INDEX ( "DATOS\FAMILIAS.NT1" ) ,;
        ( "DATOS\FAMILIAS.NT2" ) SHARED ALIAS FAM002 NEW
    IF NETERR( )
-      ALERT( "­­­ ACCESO DENEGADO !!!;;El fichero de FAMILIAS est  siendo utilizado;en modo exclusivo por otro usuario" )
+      ALERT( "­­­ ACCESO DENEGADO !!!;;El fichero de FAMILIAS esta siendo utilizado;en modo exclusivo por otro usuario" )
       RETURN .F.
       DBSETORDER( 1 )
    ENDIF
@@ -506,7 +506,7 @@ STATIC PROCEDURE InitVars
 
 //
 STATIC PROCEDURE Literales
-   @ 10,11 SAY "C¢digo...: [  ]"
+   @ 10,11 SAY "Codigo...: [  ]"
    @ 11,11 SAY "Nombre...: [                              ]"
 
 //
@@ -549,12 +549,12 @@ STATIC FUNCTION Buscar( cProcName, nProcLine, cReadVar )
             SEEK( cABuscar )
          ENDIF
       ENDIF
-      CajaTitulo( 3,0,24,40,2," Visualizaci¢n de Familias ", " <ESC> Salir ÍÍ <INTRO> Seleccionar " )
+      CajaTitulo( 3,0,24,40,2," Visualizacion de Familias ", " <ESC> Salir | <INTRO> Seleccionar " )
       oBuscar := TBrowseDB( 4,1,23,39 )
       oBuscar:headSep := "Í"
       oCol := TBColumnNew( "Nombre", { || FAM002->NOMBRE } )
       oBuscar:addColumn( oCol )
-      oCol := TBColumnNew( "C¢digo", { || FAM002->CODIGO } )
+      oCol := TBColumnNew( "Codigo", { || FAM002->CODIGO } )
       oBuscar:addColumn( oCol )
       DO WHILE ( lMas )
          nTecla := 0
@@ -608,12 +608,12 @@ STATIC FUNCTION Visualizar( cProcName, nProcLine, cReadVar )
       IF RECCOUNT( ) != 0
          DBGOTOP( )
       ENDIF
-      CajaTitulo( 3,0,24,40,2," Visualizaci¢n de Familias ", " <ESC> Salir ÍÍ <INTRO> Seleccionar " )
+      CajaTitulo( 3,0,24,40,2," Visualizacion de Familias ", " <ESC> Salir | <INTRO> Seleccionar " )
       oVisualizar := TBrowseDB( 4,1,23,39 )
       oVisualizar:headSep := "Í"
       oCol:= TBColumnNew( "Nombre", { || FAM002->NOMBRE } )
       oVisualizar:addColumn( oCol )
-      oCol := TBColumnNew( "C¢digo", { || FAM002->CODIGO } )
+      oCol := TBColumnNew( "Codigo", { || FAM002->CODIGO } )
       oVisualizar:addColumn( oCol )
       DO WHILE ( lMas )
          nTecla := 0

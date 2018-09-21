@@ -5,7 +5,6 @@ FUNCTION Main()
    LOCAL cCInicio := SETCOLOR()
    LOCAL nCol, nFil := 0
    PUBLIC cCNormal := "B/BG,N/W"
-//   PUBLIC cCMenus := "B/W+,N+/G+"
    PUBLIC cCMenus := "N/W+,W+/N+"
    PUBLIC cCPanta := "W+/B"
    PUBLIC cCMensa := "B+/W+"
@@ -35,12 +34,12 @@ FUNCTION Main()
    DISPEND()
 
    @ 0,0 TO 2,79 DOUBLE COLOR ( "B/W" )
-   @ 1,1 SAY "      Gesti¢n para Talleres de Lacado         " COLOR( "B/W" )
+   @ 1,1 SAY "      Gestion para Talleres de Lacado         " COLOR( "B/W" )
    @ 1,47 SAY "LACA v1.00        " COLOR( "B/W" )
    @ 1,63 SAY "Fecha: " COLOR( "B/W" )
    @ 1,70 SAY DATE() COLOR( "B/W" )
    @ 1,78 SAY " " COLOR( "B/W" )
-   @ 2,23 SAY "(c) Fco. Javier P‚rez Vidal - 1997"
+   @ 2,23 SAY "(c) Fco. Javier Perez Vidal - 1997"
 
    SETCOLOR( cCMenus )
    DO WHILE .T.
@@ -71,7 +70,7 @@ STATIC FUNCTION M_Maestros()
           @  6,16 PROMPT " 1) Mantenimiento de Familias                  "
           @  7,16 PROMPT " 2) Mantenimiento de Proveedores               "
           @  8,16 PROMPT " 3) Mantenimiento de Clientes                  "
-          @  9,16 PROMPT " 4) Mantenimiento de Art¡culos                 "
+          @  9,16 PROMPT " 4) Mantenimiento de Articulos                 "
 
           MENU TO nMenu
           DO CASE
@@ -100,7 +99,7 @@ STATIC FUNCTION M_Familias()
           @  8,15 PROMPT " 2) Bajas de Familias                          "
           @  9,15 PROMPT " 3) Consultas de Familias                      "
           @ 10,15 PROMPT " 4) Modificaciones de Familias                 "
-          @ 11,15 PROMPT " A) Listado de Familias por C¢digo             "
+          @ 11,15 PROMPT " A) Listado de Familias por Codigo             "
           @ 12,15 PROMPT " B) Listado de Familias por Nombre             "
 
           MENU TO nMenu
@@ -134,7 +133,7 @@ STATIC FUNCTION M_Proveedo()
           @  8,15 PROMPT " 2) Bajas de Proveedores                       "
           @  9,15 PROMPT " 3) Consultas de Proveedores                   "
           @ 10,15 PROMPT " 4) Modificaciones de Proveedores              "
-          @ 11,15 PROMPT " A) Listado de Proveedores por C¢digo          "
+          @ 11,15 PROMPT " A) Listado de Proveedores por Codigo          "
           @ 12,15 PROMPT " B) Listado de Proveedores por Nombre          "
 
           MENU TO nMenu
@@ -168,7 +167,7 @@ STATIC FUNCTION M_Clientes()
           @  8,15 PROMPT " 2) Bajas de Clientes                          "
           @  9,15 PROMPT " 3) Consultas de Clientes                      "
           @ 10,15 PROMPT " 4) Modificaciones de Clientes                 "
-          @ 11,15 PROMPT " A) Listado de Clientes por C¢digo             "
+          @ 11,15 PROMPT " A) Listado de Clientes por Codigo             "
           @ 12,15 PROMPT " B) Listado de Clientes por Nombre             "
 
           MENU TO nMenu
@@ -198,12 +197,12 @@ STATIC FUNCTION M_Articu()
        LOCAL cPantalla := SAVESCREEN( 6,13,22,67 )
        DO WHILE .T.
           CajaTitulo( 6,13,22,67,2," MANTENIMIENTO DE MAESTROS - ARTICULOS ", "" )
-          @  7,15 PROMPT " 1) Altas de Art¡culos                         "
-          @  8,15 PROMPT " 2) Bajas de Art¡culos                         "
-          @  9,15 PROMPT " 3) Consultas de Art¡culos                     "
-          @ 10,15 PROMPT " 4) Modificaciones de Art¡culos                "
-          @ 11,15 PROMPT " A) Listado de Art¡culos por C¢digo            "
-          @ 12,15 PROMPT " B) Listado de Art¡culos por Nombre            "
+          @  7,15 PROMPT " 1) Altas de Articulos                         "
+          @  8,15 PROMPT " 2) Bajas de Articulos                         "
+          @  9,15 PROMPT " 3) Consultas de Articulos                     "
+          @ 10,15 PROMPT " 4) Modificaciones de Articulos                "
+          @ 11,15 PROMPT " A) Listado de Articulos por Codigo            "
+          @ 12,15 PROMPT " B) Listado de Articulos por Nombre            "
 
           MENU TO nMenu
           DO CASE
@@ -232,9 +231,9 @@ STATIC FUNCTION M_ProcEspe()
        LOCAL cPantalla := SAVESCREEN( 5,14,21,66 )
        DO WHILE .T.
           CajaTitulo( 5,14,21,66,2," PROCESOS ESPECIALES ", "" )
-          @  6,16 PROMPT " 1) Creaci¢n de Ficheros de Datos              "
-          @  7,16 PROMPT " 2) Creaci¢n de Ficheros de Indices            "
-          @  8,16 PROMPT " 3) Compactaci¢n de Ficheros                   "
+          @  6,16 PROMPT " 1) Creacion de Ficheros de Datos              "
+          @  7,16 PROMPT " 2) Creacion de Ficheros de Indices            "
+          @  8,16 PROMPT " 3) Compactacion de Ficheros                   "
 
           MENU TO nMenu
           DO CASE
@@ -254,7 +253,7 @@ STATIC FUNCTION M_ProcEspe()
 //
 STATIC FUNCTION Salir( nMenu )
    LOCAL aOpciones := { "  S¡  ","  No  " }
-   LOCAL nSelec    := ALERT( " ¨Desea Realmente Salir ? ", aOpciones )
+   LOCAL nSelec    := ALERT( " ¿ Desea Realmente Salir ? ", aOpciones )
 
    DO CASE
       CASE nSelec == 1
@@ -262,10 +261,10 @@ STATIC FUNCTION Salir( nMenu )
            CLS
            @ 6,20 TO 12,60 DOUBLE
            @ 8,29  SAY "Gracias por usar esta"
-           @ 9,25  SAY "Gesti¢n para Talleres de Lacado"
+           @ 9,25  SAY "Gestion para Talleres de Lacado"
            @ 10,35 SAY "LACA v1.00"
-           @ 15,22 SAY "(c) Fco. Javier P‚rez Vidal - 1997"
-           @ 16,25 SAY "Apartado de Correos n§ 1556"
+           @ 15,22 SAY "(c) Fco. Javier Perez Vidal - 1997"
+           @ 16,25 SAY "Apartado de Correos nº 1556"
            @ 17,26 SAY "03205 - Elche (Alicante)"
            @ 22,0 SAY " "
            QUIT

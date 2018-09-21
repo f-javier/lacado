@@ -1,32 +1,32 @@
 * * * * * * * * * * *
-* Programa .........: Gesti¢n para Talleres de Lacado v1.00
+* Programa .........: Gestion para Talleres de Lacado v1.00
 * Subprograma ......: Mantenimiento de Proveedores.
-* Programador ......: Fco. Javier P‚rez Vidal.
+* Programador ......: Fco. Javier Perez Vidal.
 * * * * * *
-* AltasPro()  : Funci¢n para las ALTAS DE PROVEEDORES.
-* BajasPro()  : Funci¢n para las BAJAS DE PROVEEDORES.
-* ConsulPro() : Funci¢n para las CONSULTAS DE PROVEEDORES.
-* ModifPro()  : Funci¢n para las MODIFICACIONES DE PROVEEDORES.
-* LPro_Cod()  : Funci¢n para LISTADO DE PROVEEDORES POR CODIGO.
-* LPro_Nom()  : Funci¢n para LISTADO DE PROVEEDORES POR NOMBRE.
-* AbrirBBDD() : Funci¢n para abrir los ficheros.
-* CerrarBBDD(): Funci¢n para cerrar los ficheros.
+* AltasPro()  : Funcion para las ALTAS DE PROVEEDORES.
+* BajasPro()  : Funcion para las BAJAS DE PROVEEDORES.
+* ConsulPro() : Funcion para las CONSULTAS DE PROVEEDORES.
+* ModifPro()  : Funcion para las MODIFICACIONES DE PROVEEDORES.
+* LPro_Cod()  : Funcion para LISTADO DE PROVEEDORES POR CODIGO.
+* LPro_Nom()  : Funcion para LISTADO DE PROVEEDORES POR NOMBRE.
+* AbrirBBDD() : Funcion para abrir los ficheros.
+* CerrarBBDD(): Funcion para cerrar los ficheros.
 * InitVars    : Procedimiento para inicializar las varibles del fichero.
 * Literales   : Procedimiento para mostrar los literales de la patalla.
 * PedirDatos  : Procedimiento para pedir los datos de la pantalla.
 * MostrarDatos: Procedimiento para mostrar los datos en pantalla.
 * Salvar      : Procedimiento para salvar los datos de memoria en el fichero.
 * Recuperar   : Procedimiento para recuperar los datos del fichero a memoria.
-* Buscar()    : Funci¢n para busquedas. Pregunta literal a buscar.
-* Visualizar(): Funci¢n para visualizar todo el fichero.
-* Control()   : Funci¢n de navegaci¢n por el fichero en modo consultas.
+* Buscar()    : Funcion para busquedas. Pregunta literal a buscar.
+* Visualizar(): Funcion para visualizar todo el fichero.
+* Control()   : Funcion de navegaci¢n por el fichero en modo consultas.
 * * * * * *
 
 #include "inkey.ch"
 
 MEMVAR cCNormal, cCpanta, cCMensa
 
-// Definici¢n de variables STATIC. S¢lo visibles desde este programa.
+// Definicion de variables STATIC. Solo visibles desde este programa.
    STATIC nProCodigo
    STATIC cProNombre
    STATIC cProDirecc
@@ -55,7 +55,7 @@ FUNCTION AltasPro( )
    SET KEY K_F5 TO Buscar
    SET KEY K_F9 TO Visualizar
    IF AbrirBBDD( )
-      CajaTitulo( 5,8,19,70,2," Altas de Proveedores "," F5=Buscar ÍÍÍÍ F9=Visualizar " )
+      CajaTitulo( 5,8,19,70,2," Altas de Proveedores "," F5=Buscar | F9=Visualizar " )
       DO Literales
       lSalir := .T.
       DO WHILE lSalir
@@ -72,7 +72,7 @@ FUNCTION AltasPro( )
             ELSE
                   DBAPPEND( )
                   IF NETERR( )
-                     ALERT( "­­­ ACCESO DENEGADO !!!;;No se puede a¤adir el registro" )
+                     ALERT( "­­­ ACCESO DENEGADO !!!;;No se puede añadir el registro" )
                   ELSE
                      PRO001->Codigo := nProCodigo
                      PRO001->( DBCOMMIT() )
@@ -133,7 +133,7 @@ FUNCTION BajasPro()
    SET KEY K_F5 TO Buscar
    SET KEY K_F9 TO Visualizar
    IF AbrirBBDD( )
-      CajaTitulo( 5,8,19,70,2," Bajas de Provvedores "," F5=Buscar ÍÍÍÍ F9=Visualizar " )
+      CajaTitulo( 5,8,19,70,2," Bajas de Proveedores "," F5=Buscar | F9=Visualizar " )
       DO Literales
       lSalir := .T.
       DO WHILE lSalir
@@ -203,7 +203,7 @@ FUNCTION ConsulPro()
    SET KEY K_F5 TO Buscar
    SET KEY K_F9 TO Visualizar
    IF AbrirBBDD( )
-      CajaTitulo( 5,8,19,70,2," Consultas de Proveedores "," F5=Buscar ÍÍÍÍ F9=Visualizar " )
+      CajaTitulo( 5,8,19,70,2," Consultas de Proveedores "," F5=Buscar | F9=Visualizar " )
       DO Literales
       lSalir := .T.
       DO WHILE lSalir
@@ -252,7 +252,7 @@ FUNCTION ModifPro()
    SET KEY K_F5 TO Buscar
    SET KEY K_F9 TO Visualizar
    IF AbrirBBDD( )
-      CajaTitulo( 5,8,19,70,2," Modificaciones de Proveedores "," F5=Buscar ÍÍÍÍ F9=Visualizar " )
+      CajaTitulo( 5,8,19,70,2," Modificaciones de Proveedores "," F5=Buscar | F9=Visualizar " )
       DO Literales
       lSalir := .T.
       DO WHILE lSalir
@@ -329,9 +329,9 @@ FUNCTION LPro_Cod
    SET( _SET_DELIMITERS, .T. )
    SETCURSOR( 1 )
    IF AbrirBBDD( )
-      CajaTitulo( 5,15,17,65,2," Listado de Proveedores por C¢digo "," ESC = Salir ÍÍÍÍÍÍÍÍ 132 Columnas " )
-      @  8,25 SAY "C¢digo desde:" GET nDesde PICTURE "999"
-      @ 10,25 SAY "C¢digo Hasta:" GET nHasta PICTURE "999"
+      CajaTitulo( 5,15,17,65,2," Listado de Proveedores por Codigo "," ESC = Salir | 132 Columnas " )
+      @  8,25 SAY "Codigo desde:" GET nDesde PICTURE "999"
+      @ 10,25 SAY "Codigo Hasta:" GET nHasta PICTURE "999"
       @ 12,25 SAY "Destino del listado(P/I):" GET cDestino ;
               PICTURE "!" VALID( cDestino $ "PI" )
       @ 14,25 SAY "¨Confirma los datos(S/N)?" GET cCorrecto ;
@@ -343,7 +343,7 @@ FUNCTION LPro_Cod
             SET FILTER TO PRO001->codigo >= nDesde .AND. ;
                           PRO001->codigo <= nHasta
             DBGOTOP( )
-            CajaTitulo( 3,0,24,79,2," Listado de Proveedores por C¢digo ",;
+            CajaTitulo( 3,0,24,79,2," Listado de Proveedores por Codigo ",;
                                      " Pulse <ESC> para Salir " )
             oListado := TBrowseDB( 4,1,23,78 )
             oListado:headSep := "Í"
@@ -438,7 +438,7 @@ FUNCTION LPro_Nom
    SETCURSOR( 1 )
    IF AbrirBBDD( )
       DBSETORDER( 2 )
-      CajaTitulo( 5,14,17,68,2," Listado de Proveedores por Nombre "," ESC = Salir ÍÍÍÍÍÍÍÍ 132 Columnas " )
+      CajaTitulo( 5,14,17,68,2," Listado de Proveedores por Nombre "," ESC = Salir | 132 Columnas " )
       @  8,17 SAY "Proveedor desde:" GET cDesde PICTURE "@K!"
       @ 10,17 SAY "Proveedor Hasta:" GET cHasta PICTURE "@K!"
       @ 12,25 SAY "Destino del listado(P/I):" GET cDestino ;
@@ -536,7 +536,7 @@ STATIC FUNCTION AbrirBBDD()
    USE ( "DATOS\PROVEEDO.DBF" ) INDEX ( "DATOS\PROVEEDO.NT1" ) ,;
        ( "DATOS\PROVEEDO.NT2" ) SHARED ALIAS PRO001 NEW
    IF NETERR( )
-      ALERT( "­­­ ACCESO DENEGADO !!!;;El fichero de PROVEEDORES est  siendo utilizado;en modo exclusivo por otro usuario" )
+      ALERT( "­­­ ACCESO DENEGADO !!!;;El fichero de PROVEEDORES esta siendo utilizado;en modo exclusivo por otro usuario" )
       RETURN .F.
       DBSETORDER( 1 )
    ENDIF
@@ -562,12 +562,12 @@ STATIC PROCEDURE InitVars
 
 //
 STATIC PROCEDURE Literales
-   @  7,11 SAY "C¢digo...: [   ]"
+   @  7,11 SAY "Codigo...: [   ]"
    @  8,11 SAY "Nombre...: [                              ]"
-   @  9,11 SAY "Direcci¢n: [                              ]"
-   @ 10,11 SAY "Poblaci¢n: [     ] [                         ]"
-   @ 11,11 SAY "Prov¡ncia: [                         ]"
-   @ 12,11 SAY "Tel‚fono.: [               ]   FAX: [               ]"
+   @  9,11 SAY "Direccion: [                              ]"
+   @ 10,11 SAY "Poblacion: [     ] [                         ]"
+   @ 11,11 SAY "Provincia: [                         ]"
+   @ 12,11 SAY "Telefono.: [               ]   FAX: [               ]"
    @ 13,11 SAY "NIF/CIF..: [          ]"
    @ 14,11 SAY "Persona de Contacto.: [                              ]"
    @ 15,11 SAY "Acumulado de Compras: [            ]"
@@ -648,12 +648,12 @@ STATIC FUNCTION Buscar( cProcName, nProcLine, cReadVar )
             SEEK( cABuscar )
          ENDIF
       ENDIF
-      CajaTitulo( 3,0,24,40,2," Visualizaci¢n de Proveedores ", " <ESC> Salir ÍÍ <INTRO> Seleccionar " )
+      CajaTitulo( 3,0,24,40,2," Visualizacion de Proveedores ", " <ESC> Salir | <INTRO> Seleccionar " )
       oBuscar := TBrowseDB( 4,1,23,39 )
       oBuscar:headSep := "Í"
       oCol := TBColumnNew( "Nombre", { || PRO001->NOMBRE } )
       oBuscar:addColumn( oCol )
-      oCol := TBColumnNew( "C¢digo", { || PRO001->CODIGO } )
+      oCol := TBColumnNew( "Codigo", { || PRO001->CODIGO } )
       oBuscar:addColumn( oCol )
       DO WHILE ( lMas )
          nTecla := 0
@@ -707,7 +707,7 @@ STATIC FUNCTION Visualizar( cProcName, nProcLine, cReadVar )
       IF RECCOUNT( ) != 0
          DBGOTOP( )
       ENDIF
-      CajaTitulo( 3,0,24,40,2," Visualizaci¢n de Proveedores ", " <ESC> Salir ÍÍ <INTRO> Seleccionar " )
+      CajaTitulo( 3,0,24,40,2," Visualizacion de Proveedores ", " <ESC> Salir | <INTRO> Seleccionar " )
       oVisualizar := TBrowseDB( 4,1,23,39 )
       oVisualizar:headSep := "Í"
       oCol:= TBColumnNew( "Nombre", { || PRO001->NOMBRE } )

@@ -1,32 +1,32 @@
 * * * * * * * * * * *
-* Programa .........: Gesti¢n para Talleres de Lacado v1.00
+* Programa .........: Gestion para Talleres de Lacado v1.00
 * Subprograma ......: Mantenimiento de Clientes.
-* Programador ......: Fco. Javier P‚rez Vidal.
+* Programador ......: Fco. Javier Perez Vidal.
 * * * * * *
-* AltasCli()  : Funci¢n para las ALTAS DE CLIENTE.
-* BajasCli()  : Funci¢n para las BAJAS DE CLIENTES.
-* ConsulCli() : Funci¢n para las CONSULTAS DE CLIENTES.
-* ModifCli()  : Funci¢n para las MODIFICACIONES DE CLIENTES.
-* LCli_Cod()  : Funci¢n para LISTADO DE CLIENTES POR CODIGO.
-* LCli_Nom()  : Funci¢n para LISTADO DE CLIENTES POR NOMBRE.
-* AbrirBBDD() : Funci¢n para abrir los ficheros.
-* CerrarBBDD(): Funci¢n para cerrar los ficheros.
+* AltasCli()  : Funcion para las ALTAS DE CLIENTE.
+* BajasCli()  : Funcion para las BAJAS DE CLIENTES.
+* ConsulCli() : Funcion para las CONSULTAS DE CLIENTES.
+* ModifCli()  : Funcion para las MODIFICACIONES DE CLIENTES.
+* LCli_Cod()  : Funcion para LISTADO DE CLIENTES POR CODIGO.
+* LCli_Nom()  : Funcion para LISTADO DE CLIENTES POR NOMBRE.
+* AbrirBBDD() : Funcion para abrir los ficheros.
+* CerrarBBDD(): Funcion para cerrar los ficheros.
 * InitVars    : Procedimiento para inicializar las varibles del fichero.
 * Literales   : Procedimiento para mostrar los literales de la patalla.
 * PedirDatos  : Procedimiento para pedir los datos de la pantalla.
 * MostrarDatos: Procedimiento para mostrar los datos en pantalla.
 * Salvar      : Procedimiento para salvar los datos de memoria en el fichero.
 * Recuperar   : Procedimiento para recuperar los datos del fichero a memoria.
-* Buscar()    : Funci¢n para busquedas. Pregunta literal a buscar.
-* Visualizar(): Funci¢n para visualizar todo el fichero.
-* Control()   : Funci¢n de navegaci¢n por el fichero en modo consultas.
+* Buscar()    : Funcion para busquedas. Pregunta literal a buscar.
+* Visualizar(): Funcion para visualizar todo el fichero.
+* Control()   : Funcion de navegacion por el fichero en modo consultas.
 * * * * * *
 
 #include "inkey.ch"
 
 MEMVAR cCNormal, cCpanta, cCMensa
 
-// Definici¢n de variables STATIC. S¢lo visibles desde este programa.
+// Definicion de variables STATIC. Solo visibles desde este programa.
    STATIC nCliCodigo
    STATIC cCliNombre
    STATIC cCliDirecc
@@ -55,7 +55,7 @@ FUNCTION AltasCli( )
    SET KEY K_F5 TO Buscar
    SET KEY K_F9 TO Visualizar
    IF AbrirBBDD( )
-      CajaTitulo( 5,8,19,70,2," Altas de Clientes "," F5=Buscar ÍÍÍÍ F9=Visualizar " )
+      CajaTitulo( 5,8,19,70,2," Altas de Clientes "," F5=Buscar | F9=Visualizar " )
       DO Literales
       lSalir := .T.
       DO WHILE lSalir
@@ -72,7 +72,7 @@ FUNCTION AltasCli( )
             ELSE
                   DBAPPEND( )
                   IF NETERR( )
-                     ALERT( "­­­ ACCESO DENEGADO !!!;;No se puede a¤adir el registro" )
+                     ALERT( "­­­ ACCESO DENEGADO !!!;;No se puede añadir el registro" )
                   ELSE
                      CLI003->Codigo := nCliCodigo
                      CLI003->( DBCOMMIT() )
@@ -133,7 +133,7 @@ FUNCTION BajasCli()
    SET KEY K_F5 TO Buscar
    SET KEY K_F9 TO Visualizar
    IF AbrirBBDD( )
-      CajaTitulo( 5,8,19,70,2," Bajas de Clientes "," F5=Buscar ÍÍÍÍ F9=Visualizar " )
+      CajaTitulo( 5,8,19,70,2," Bajas de Clientes "," F5=Buscar | F9=Visualizar " )
       DO Literales
       lSalir := .T.
       DO WHILE lSalir
@@ -203,7 +203,7 @@ FUNCTION ConsulCli()
    SET KEY K_F5 TO Buscar
    SET KEY K_F9 TO Visualizar
    IF AbrirBBDD( )
-      CajaTitulo( 5,8,19,70,2," Consultas de Clientes "," F5=Buscar ÍÍÍÍ F9=Visualizar " )
+      CajaTitulo( 5,8,19,70,2," Consultas de Clientes "," F5=Buscar | F9=Visualizar " )
       DO Literales
       lSalir := .T.
       DO WHILE lSalir
@@ -252,7 +252,7 @@ FUNCTION ModifCli()
    SET KEY K_F5 TO Buscar
    SET KEY K_F9 TO Visualizar
    IF AbrirBBDD( )
-      CajaTitulo( 5,8,19,70,2," Modificaciones de Clientes "," F5=Buscar ÍÍÍÍ F9=Visualizar " )
+      CajaTitulo( 5,8,19,70,2," Modificaciones de Clientes "," F5=Buscar | F9=Visualizar " )
       DO Literales
       lSalir := .T.
       DO WHILE lSalir
@@ -329,9 +329,9 @@ FUNCTION LCli_Cod
    SET( _SET_DELIMITERS, .T. )
    SETCURSOR( 1 )
    IF AbrirBBDD( )
-      CajaTitulo( 5,15,17,65,2," Listado de Clientes por C¢digo "," ESC = Salir ÍÍÍÍÍÍÍÍ132 Columnas " )
-      @  8,25 SAY "C¢digo desde:" GET nDesde PICTURE "99999"
-      @ 10,25 SAY "C¢digo Hasta:" GET nHasta PICTURE "99999"
+      CajaTitulo( 5,15,17,65,2," Listado de Clientes por Codigo "," ESC = Salir | 132 Columnas " )
+      @  8,25 SAY "Codigo desde:" GET nDesde PICTURE "99999"
+      @ 10,25 SAY "Codigo Hasta:" GET nHasta PICTURE "99999"
       @ 12,25 SAY "Destino del listado(P/I):" GET cDestino ;
               PICTURE "!" VALID( cDestino $ "PI" )
       @ 14,25 SAY "¨Confirma los datos(S/N)?" GET cCorrecto ;
@@ -343,23 +343,23 @@ FUNCTION LCli_Cod
             SET FILTER TO CLI003->codigo >= nDesde .AND. ;
                           CLI003->codigo <= nHasta
             DBGOTOP( )
-            CajaTitulo( 3,0,24,79,2," Listado de Clientes por C¢digo ",;
+            CajaTitulo( 3,0,24,79,2," Listado de Clientes por Codigo ",;
                                      " Pulse <ESC> para Salir " )
             oListado := TBrowseDB( 4,1,23,78 )
             oListado:headSep := "Í"
-            oCol := TBColumnNew( "C¢digo", { || CLI003->CODIGO } )
+            oCol := TBColumnNew( "Codigo", { || CLI003->CODIGO } )
             oListado:addColumn( oCol )
             oCol := TBColumnNew( "Nombre", { || CLI003->NOMBRE } )
             oListado:addColumn( oCol )
-            oCol := TBColumnNew( "Direcci¢n", { || CLI003->DIRECCION } )
+            oCol := TBColumnNew( "Direccion", { || CLI003->DIRECCION } )
             oListado:addColumn( oCol )
             oCol := TBColumnNew( "C.P.", { || CLI003->CODPOSTAL } )
             oListado:addColumn( oCol )
-            oCol := TBColumnNew( "Poblaci¢n", { || CLI003->POBLACION } )
+            oCol := TBColumnNew( "Poblacion", { || CLI003->POBLACION } )
             oListado:addColumn( oCol )
-            oCol := TBColumnNew( "Prov¡ncia", { || CLI003->PROVINCIA } )
+            oCol := TBColumnNew( "Provincia", { || CLI003->PROVINCIA } )
             oListado:addColumn( oCol )
-            oCol := TBColumnNew( "Tel‚fono", { || CLI003->TELEFONO } )
+            oCol := TBColumnNew( "Telefono", { || CLI003->TELEFONO } )
             oListado:addColumn( oCol )
             oCol := TBColumnNew( "FAX", { || CLI003->FAX } )
             oListado:addColumn( oCol )
@@ -438,7 +438,7 @@ FUNCTION LCli_Nom
    SETCURSOR( 1 )
    IF AbrirBBDD( )
       DBSETORDER( 2 )
-      CajaTitulo( 5,14,17,68,2," Listado de Clientes por Nombre "," ESC = Salir ÍÍÍÍÍÍÍÍ 132 Columnas " )
+      CajaTitulo( 5,14,17,68,2," Listado de Clientes por Nombre "," ESC = Salir | 132 Columnas " )
       @  8,17 SAY "Cliente desde:" GET cDesde PICTURE "@K!"
       @ 10,17 SAY "Cliente Hasta:" GET cHasta PICTURE "@K!"
       @ 12,25 SAY "Destino del listado(P/I):" GET cDestino ;
@@ -458,17 +458,17 @@ FUNCTION LCli_Nom
             oListado:headSep := "Í"
             oCol := TBColumnNew( "Nombre", { || CLI003->NOMBRE } )
             oListado:addColumn( oCol )
-            oCol := TBColumnNew( "C¢digo", { || CLI003->CODIGO } )
+            oCol := TBColumnNew( "Codigo", { || CLI003->CODIGO } )
             oListado:addColumn( oCol )
-            oCol := TBColumnNew( "Direcci¢n", { || CLI003->DIRECCION } )
+            oCol := TBColumnNew( "Direccion", { || CLI003->DIRECCION } )
             oListado:addColumn( oCol )
             oCol := TBColumnNew( "C.P.", { || CLI003->CODPOSTAL } )
             oListado:addColumn( oCol )
-            oCol := TBColumnNew( "Poblaci¢n", { || CLI003->POBLACION } )
+            oCol := TBColumnNew( "Poblacion", { || CLI003->POBLACION } )
             oListado:addColumn( oCol )
-            oCol := TBColumnNew( "Prov¡ncia", { || CLI003->PROVINCIA } )
+            oCol := TBColumnNew( "Provincia", { || CLI003->PROVINCIA } )
             oListado:addColumn( oCol )
-            oCol := TBColumnNew( "Tel‚fono", { || CLI003->TELEFONO } )
+            oCol := TBColumnNew( "Telefono", { || CLI003->TELEFONO } )
             oListado:addColumn( oCol )
             oCol := TBColumnNew( "FAX", { || CLI003->FAX } )
             oListado:addColumn( oCol )
@@ -536,7 +536,7 @@ STATIC FUNCTION AbrirBBDD()
    USE ( "DATOS\CLIENTES.DBF" ) INDEX ( "DATOS\CLIENTES.NT1" ) ,;
        ( "DATOS\CLIENTES.NT2" ) SHARED ALIAS CLI003 NEW
    IF NETERR( )
-      ALERT( "­­­ ACCESO DENEGADO !!!;;El fichero de CLIENTES est  siendo utilizado;en modo exclusivo por otro usuario" )
+      ALERT( "­­­ ACCESO DENEGADO !!!;;El fichero de CLIENTES esta siendo utilizado;en modo exclusivo por otro usuario" )
       RETURN .F.
       DBSETORDER( 1 )
    ENDIF
@@ -562,12 +562,12 @@ STATIC PROCEDURE InitVars
 
 //
 STATIC PROCEDURE Literales
-   @  7,11 SAY "C¢digo...: [     ]"
+   @  7,11 SAY "Codigo...: [     ]"
    @  8,11 SAY "Nombre...: [                              ]"
-   @  9,11 SAY "Direcci¢n: [                              ]"
-   @ 10,11 SAY "Poblaci¢n: [     ] [                         ]"
+   @  9,11 SAY "Direccion: [                              ]"
+   @ 10,11 SAY "Poblacion: [     ] [                         ]"
    @ 11,11 SAY "Prov¡ncia: [                         ]"
-   @ 12,11 SAY "Tel‚fono.: [               ]   FAX: [               ]"
+   @ 12,11 SAY "Telefono.: [               ]   FAX: [               ]"
    @ 13,11 SAY "NIF/CIF..: [          ]"
    @ 14,11 SAY "Persona de Contacto.: [                              ]"
    @ 15,11 SAY "Acumulado de Ventas.: [            ]"
@@ -648,12 +648,12 @@ STATIC FUNCTION Buscar( cProcName, nProcLine, cReadVar )
             SEEK( cABuscar )
          ENDIF
       ENDIF
-      CajaTitulo( 3,0,24,40,2," Visualizaci¢n de Clientes ", " <ESC> Salir ÍÍ <INTRO> Seleccionar " )
+      CajaTitulo( 3,0,24,40,2," Visualizacion de Clientes ", " <ESC> Salir | <INTRO> Seleccionar " )
       oBuscar := TBrowseDB( 4,1,23,39 )
       oBuscar:headSep := "Í"
       oCol := TBColumnNew( "Nombre", { || CLI003->NOMBRE } )
       oBuscar:addColumn( oCol )
-      oCol := TBColumnNew( "C¢digo", { || CLI003->CODIGO } )
+      oCol := TBColumnNew( "Codigo", { || CLI003->CODIGO } )
       oBuscar:addColumn( oCol )
       DO WHILE ( lMas )
          nTecla := 0
@@ -707,12 +707,12 @@ STATIC FUNCTION Visualizar( cProcName, nProcLine, cReadVar )
       IF RECCOUNT( ) != 0
          DBGOTOP( )
       ENDIF
-      CajaTitulo( 3,0,24,40,2," Visualizaci¢n de Clientes ", " <ESC> Salir ÍÍ <INTRO> Seleccionar " )
+      CajaTitulo( 3,0,24,40,2," Visualizacion de Clientes ", " <ESC> Salir | <INTRO> Seleccionar " )
       oVisualizar := TBrowseDB( 4,1,23,39 )
       oVisualizar:headSep := "Í"
       oCol:= TBColumnNew( "Nombre", { || CLI003->NOMBRE } )
       oVisualizar:addColumn( oCol )
-      oCol := TBColumnNew( "C¢digo", { || CLI003->CODIGO } )
+      oCol := TBColumnNew( "Codigo", { || CLI003->CODIGO } )
       oVisualizar:addColumn( oCol )
       DO WHILE ( lMas )
          nTecla := 0

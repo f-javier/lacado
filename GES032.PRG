@@ -1,13 +1,13 @@
 * * * * * * * * * * *
-* Programa .........: Gesti¢n para Talleresa de Lacado v1.00
-* Subprograma ......: Creaci¢n de Ficheros de Indices.
-* Programador ......: Fco. Javier P‚rez Vidal.
+* Programa .........: Gestion para Talleres de Lacado v1.00
+* Subprograma ......: Creacion de Ficheros de Indices.
+* Programador ......: Fco. Javier Perez Vidal.
 * * * * * *
-* CrearDatos() : Funci¢n general para la creaci¢n de las bases de datos.
-* CrearPro()   : Funci¢n para crear Proveedores.
-* CrearFam()   : Funci¢n para crear Familias.
-* CrearArt()   : Funci¢n para crear Art¡culos.
-* CrearCli()   : Funci¢n para crear Clientes.
+* CrearDatos() : Funcion general para la creacion de las bases de datos.
+* CrearPro()   : Funcion para crear Proveedores.
+* CrearFam()   : Funcion para crear Familias.
+* CrearArt()   : Funcion para crear Articulos.
+* CrearCli()   : Funcion para crear Clientes.
 * * * * *
 
 MEMVAR cCNormal, cCMenus
@@ -20,11 +20,11 @@ FUNCTION CrearIndic()
 
    DO WHILE .T.
       CajaTitulo( 6,13,22,67,2," CREACION DE FICHEROS DE INDICES ", "" )
-      @  7,15 PROMPT " 1) Creaci¢n de Proveedores                        "
-      @  8,15 PROMPT " 2) Creaci¢n de Familias                           "
-      @  9,15 PROMPT " 3) Creaci¢n de Art¡culos                          "
-      @ 10,15 PROMPT " 4) Creaci¢n de Clientes                           "
-      @ 11,15 PROMPT " 5) Creaci¢n de TODOS los Ficheros                 "
+      @  7,15 PROMPT " 1) Creacion de Proveedores                        "
+      @  8,15 PROMPT " 2) Creacion de Familias                           "
+      @  9,15 PROMPT " 3) Creacion de Articulos                          "
+      @ 10,15 PROMPT " 4) Creacion de Clientes                           "
+      @ 11,15 PROMPT " 5) Creacion de TODOS los Ficheros                 "
 
       MENU TO nMenu
       DO CASE

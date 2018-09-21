@@ -1,32 +1,32 @@
 * * * * * * * * * * *
-* Programa .........: Gesti¢n para Talleres de Lacado v1.00
-* Subprograma ......: Mantenimiento de Art¡culos.
-* Programador ......: Fco. Javier P‚rez Vidal.
+* Programa .........: Gestion para Talleres de Lacado v1.00
+* Subprograma ......: Mantenimiento de Articulos.
+* Programador ......: Fco. Javier Perez Vidal.
 * * * * * *
-* AltasArt()  : Funci¢n para las ALTAS DE ARTICULOS
-* BajasArt()  : Funci¢n para las BAJAS DE ARTICULOS.
-* ConsulArt() : Funci¢n para las CONSULTAS DE ARTICULOS.
-* ModifArt()  : Funci¢n para las MODIFICACIONES DE ARTICULOS.
-* LArt_Cod()  : Funci¢n para LISTADO DE ARTICULOS POR CODIGO.
-* LArt_Nom()  : Funci¢n para LISTADO DE ARTICULOS POR NOMBRE.
-* AbrirBBDD() : Funci¢n para abrir los ficheros.
-* CerrarBBDD(): Funci¢n para cerrar los ficheros.
+* AltasArt()  : Funcion para las ALTAS DE ARTICULOS
+* BajasArt()  : Funcion para las BAJAS DE ARTICULOS.
+* ConsulArt() : Funcion para las CONSULTAS DE ARTICULOS.
+* ModifArt()  : Funcion para las MODIFICACIONES DE ARTICULOS.
+* LArt_Cod()  : Funcion para LISTADO DE ARTICULOS POR CODIGO.
+* LArt_Nom()  : Funcion para LISTADO DE ARTICULOS POR NOMBRE.
+* AbrirBBDD() : Funcion para abrir los ficheros.
+* CerrarBBDD(): Funcion para cerrar los ficheros.
 * InitVars    : Procedimiento para inicializar las varibles del fichero.
 * Literales   : Procedimiento para mostrar los literales de la patalla.
 * PedirDatos  : Procedimiento para pedir los datos de la pantalla.
 * MostrarDatos: Procedimiento para mostrar los datos en pantalla.
 * Salvar      : Procedimiento para salvar los datos de memoria en el fichero.
 * Recuperar   : Procedimiento para recuperar los datos del fichero a memoria.
-* Buscar()    : Funci¢n para busquedas. Pregunta literal a buscar.
-* Visualizar(): Funci¢n para visualizar todo el fichero.
-* Control()   : Funci¢n de navegaci¢n por el fichero en modo consultas.
+* Buscar()    : Funcion para busquedas. Pregunta literal a buscar.
+* Visualizar(): Funcion para visualizar todo el fichero.
+* Control()   : Funcion de navegacion por el fichero en modo consultas.
 * * * * * *
 
 #include "inkey.ch"
 
 MEMVAR cCNormal, cCpanta, cCMensa
 
-// Definici¢n de variables STATIC. S¢lo visibles desde este programa.
+// Definicion de variables STATIC. Solo visibles desde este programa.
    STATIC nArtCodigo
    STATIC cArtNombre
    STATIC nArtFamili
@@ -53,7 +53,7 @@ FUNCTION AltasArt( )
    SET KEY K_F5 TO Buscar
    SET KEY K_F9 TO Visualizar
    IF AbrirBBDD( )
-      CajaTitulo( 8,8,19,70,2," Altas de Art¡culos "," F5=Buscar ÍÍÍÍ F9=Visualizar " )
+      CajaTitulo( 8,8,19,70,2," Altas de Articulos "," F5=Buscar | F9=Visualizar " )
       DO Literales
       lSalir := .T.
       DO WHILE lSalir
@@ -70,7 +70,7 @@ FUNCTION AltasArt( )
             ELSE
                   DBAPPEND( )
                   IF NETERR( )
-                     ALERT( "­­­ ACCESO DENEGADO !!!;;No se puede a¤adir el registro" )
+                     ALERT( "­­­ ACCESO DENEGADO !!!;;No se puede añadir el registro" )
                   ELSE
                      ART004->Codigo := nArtCodigo
                      ART004->( DBCOMMIT() )
@@ -131,7 +131,7 @@ FUNCTION BajasArt()
    SET KEY K_F5 TO Buscar
    SET KEY K_F9 TO Visualizar
    IF AbrirBBDD( )
-      CajaTitulo( 8,8,19,70,2," Bajas de Art¡culos "," F5=Buscar ÍÍÍÍ F9=Visualizar " )
+      CajaTitulo( 8,8,19,70,2," Bajas de Articulos "," F5=Buscar | F9=Visualizar " )
       DO Literales
       lSalir := .T.
       DO WHILE lSalir
@@ -202,7 +202,7 @@ FUNCTION ConsulArt()
    SET KEY K_F5 TO Buscar
    SET KEY K_F9 TO Visualizar
    IF AbrirBBDD( )
-      CajaTitulo( 8,8,19,70,2," Consultas de Art¡culos "," F5=Buscar ÍÍÍÍ F9=Visualizar " )
+      CajaTitulo( 8,8,19,70,2," Consultas de Articulos "," F5=Buscar | F9=Visualizar " )
       DO Literales
       lSalir := .T.
       DO WHILE lSalir
@@ -253,7 +253,7 @@ FUNCTION ModifArt()
    SET KEY K_F5 TO Buscar
    SET KEY K_F9 TO Visualizar
    IF AbrirBBDD( )
-      CajaTitulo( 8,8,19,70,2," Modificaciones de Art¡culos "," F5=Buscar ÍÍÍÍ F9=Visualizar " )
+      CajaTitulo( 8,8,19,70,2," Modificaciones de Articulos "," F5=Buscar | F9=Visualizar " )
       DO Literales
       lSalir := .T.
       DO WHILE lSalir
@@ -333,9 +333,9 @@ FUNCTION LArt_Cod
    SET( _SET_DELIMITERS, .T. )
    SETCURSOR( 1 )
    IF AbrirBBDD( )
-      CajaTitulo( 5,15,17,65,2," Listado de Art¡culos por C¢digo "," ESC = Salir ÍÍÍÍÍÍÍÍ132 Columnas " )
-      @  8,25 SAY "C¢digo desde:" GET nDesde PICTURE "99999"
-      @ 10,25 SAY "C¢digo Hasta:" GET nHasta PICTURE "99999"
+      CajaTitulo( 5,15,17,65,2," Listado de Articulos por Codigo "," ESC = Salir | 132 Columnas " )
+      @  8,25 SAY "Codigo desde:" GET nDesde PICTURE "99999"
+      @ 10,25 SAY "Codigo Hasta:" GET nHasta PICTURE "99999"
       @ 12,25 SAY "Destino del listado(P/I):" GET cDestino ;
               PICTURE "!" VALID( cDestino $ "PI" )
       @ 14,25 SAY "¨Confirma los datos(S/N)?" GET cCorrecto ;
@@ -347,11 +347,11 @@ FUNCTION LArt_Cod
             SET FILTER TO ART004->codigo >= nDesde .AND. ;
                           ART004->codigo <= nHasta
             DBGOTOP( )
-            CajaTitulo( 3,0,24,79,2," Listado de Art¡culos por C¢digo ",;
+            CajaTitulo( 3,0,24,79,2," Listado de Articulos por Codigo ",;
                                      " Pulse <ESC> para Salir " )
             oListado := TBrowseDB( 4,1,23,78 )
             oListado:headSep := "Í"
-            oCol := TBColumnNew( "C¢digo", { || ART004->CODIGO } )
+            oCol := TBColumnNew( "Codigo", { || ART004->CODIGO } )
             oListado:addColumn( oCol )
             oCol := TBColumnNew( "Nombre", { || ART004->NOMBRE } )
             oListado:addColumn( oCol )
@@ -437,9 +437,9 @@ FUNCTION LArt_Nom
    SETCURSOR( 1 )
    IF AbrirBBDD( )
       DBSETORDER( 2 )
-      CajaTitulo( 5,14,17,68,2," Listado de Art¡culos por Nombre "," ESC = Salir ÍÍÍÍÍÍÍÍ 132 Columnas " )
-      @  8,17 SAY "Art¡culo desde:" GET cDesde PICTURE "@K!"
-      @ 10,17 SAY "Art¡culo Hasta:" GET cHasta PICTURE "@K!"
+      CajaTitulo( 5,14,17,68,2," Listado de Art¡culos por Nombre "," ESC = Salir | 132 Columnas " )
+      @  8,17 SAY "Articulo desde:" GET cDesde PICTURE "@K!"
+      @ 10,17 SAY "Articulo Hasta:" GET cHasta PICTURE "@K!"
       @ 12,25 SAY "Destino del listado(P/I):" GET cDestino ;
               PICTURE "!" VALID( cDestino $ "PI" )
       @ 14,25 SAY "¨Confirma los datos(S/N)?" GET cCorrecto ;
@@ -451,13 +451,13 @@ FUNCTION LArt_Nom
             SET FILTER TO ART004->nombre >= cDesde .AND. ;
                           ART004->nombre <= cHasta
             DBGOTOP( )
-            CajaTitulo( 3,0,24,79,2," Listado de Art¡culos por Nombre ",;
+            CajaTitulo( 3,0,24,79,2," Listado de Articulos por Nombre ",;
                                      " Pulse <ESC> para Salir " )
             oListado := TBrowseDB( 4,1,23,78 )
             oListado:headSep := "Í"
             oCol := TBColumnNew( "Nombre", { || ART004->NOMBRE } )
             oListado:addColumn( oCol )
-            oCol := TBColumnNew( "C¢digo", { || ART004->CODIGO } )
+            oCol := TBColumnNew( "Codigo", { || ART004->CODIGO } )
             oListado:addColumn( oCol )
 	    oCol := TBColumnNew( "Familia", { || FAM004->NOMBRE } )
             oListado:addColumn( oCol )
@@ -526,21 +526,21 @@ STATIC FUNCTION AbrirBBDD()
    USE ( "DATOS\ARTICU.DBF" ) INDEX ( "DATOS\ARTICU.NT1" ) ,;
        ( "DATOS\ARTICU.NT2" ) SHARED ALIAS ART004 NEW
    IF NETERR( )
-      ALERT( "­­­ ACCESO DENEGADO !!!;;El fichero de ARTICULOS est  siendo utilizado;en modo exclusivo por otro usuario" )
+      ALERT( "­­­ ACCESO DENEGADO !!!;;El fichero de ARTICULOS esta siendo utilizado;en modo exclusivo por otro usuario" )
       RETURN .F.
    ELSE
       DBSETORDER( 1 )
       USE ( "DATOS\PROVEEDO.DBF" ) INDEX ( "DATOS\PROVEEDO.NT1" ) ,;
           ( "DATOS\PROVEEDO.NT2" ) SHARED ALIAS PRO004 NEW
       IF NETERR( )
-         ALERT( "­­­ ACCESO DENEGADO !!!;;El fichero de PROVEEDORES est  siendo utilizado;en modo exclusivo por otro usuario" )
+         ALERT( "­­­ ACCESO DENEGADO !!!;;El fichero de PROVEEDORES esta siendo utilizado;en modo exclusivo por otro usuario" )
          RETURN .F.
       ELSE
          DBSETORDER( 1 )
          USE ( "DATOS\FAMILIAS.DBF" ) INDEX ( "DATOS\FAMILIAS.NT1" ) ,;
              ( "DATOS\FAMILIAS.NT2" ) SHARED ALIAS FAM004 NEW
          IF NETERR( )
-            ALERT( "­­­ ACCESO DENEGADO !!!;;El fichero de FAMILIAS est  siendo utilizado;en modo exclusivo por otro usuario" )
+            ALERT( "­­­ ACCESO DENEGADO !!!;;El fichero de FAMILIAS esta siendo utilizado;en modo exclusivo por otro usuario" )
             RETURN .F.
          ELSE
             DBSETORDER( 1 )
@@ -572,7 +572,7 @@ STATIC PROCEDURE InitVars
 
 //
 STATIC PROCEDURE Literales
-   @ 10,11 SAY "C¢digo...: [     ]"
+   @ 10,11 SAY "Codigo...: [     ]"
    @ 11,11 SAY "Nombre...: [                                        ]"
    @ 12,11 SAY "Familia..: [  ] [                              ]"
    @ 13,11 SAY "Proveedor: [   ] [                              ]"
@@ -637,12 +637,12 @@ STATIC FUNCTION Buscar( cProcName, nProcLine, cReadVar )
             SEEK( cABuscar )
          ENDIF
       ENDIF
-      CajaTitulo( 3,0,24,50,2," Visualizaci¢n de Art¡culos ", " <ESC> Salir ÍÍ <INTRO> Seleccionar " )
+      CajaTitulo( 3,0,24,50,2," Visualizacion de Articulos ", " <ESC> Salir | <INTRO> Seleccionar " )
       oBuscar := TBrowseDB( 4,1,23,49 )
       oBuscar:headSep := "Í"
       oCol := TBColumnNew( "Nombre", { || ART004->NOMBRE } )
       oBuscar:addColumn( oCol )
-      oCol := TBColumnNew( "C¢digo", { || ART004->CODIGO } )
+      oCol := TBColumnNew( "Codigo", { || ART004->CODIGO } )
       oBuscar:addColumn( oCol )
       DO WHILE ( lMas )
          nTecla := 0
@@ -696,12 +696,12 @@ STATIC FUNCTION Visualizar( cProcName, nProcLine, cReadVar )
       IF RECCOUNT( ) != 0
          DBGOTOP( )
       ENDIF
-      CajaTitulo( 3,0,24,50,2," Visualizaci¢n de Art¡culos ", " <ESC> Salir ÍÍ <INTRO> Seleccionar " )
+      CajaTitulo( 3,0,24,50,2," Visualizacion de Articulos ", " <ESC> Salir | <INTRO> Seleccionar " )
       oVisualizar := TBrowseDB( 4,1,23,49 )
       oVisualizar:headSep := "Í"
       oCol:= TBColumnNew( "Nombre", { || ART004->NOMBRE } )
       oVisualizar:addColumn( oCol )
-      oCol := TBColumnNew( "C¢digo", { || ART004->CODIGO } )
+      oCol := TBColumnNew( "Codigo", { || ART004->CODIGO } )
       oVisualizar:addColumn( oCol )
       DO WHILE ( lMas )
          nTecla := 0
